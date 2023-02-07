@@ -10,7 +10,7 @@ FROM node:alpine3.17 AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN yarn build
+RUN nest build
 
 
 # Production image, copy all the local and run next
