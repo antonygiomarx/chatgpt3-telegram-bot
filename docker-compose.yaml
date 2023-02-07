@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - .:/app
+    ports:
+      - ${PORT}:${PORT}
+    environment:
+      PORT: ${PORT}
+      TELEGRAM_BOT_KEY: ${TELEGRAM_BOT_KEY}
+      CHATGPT_API_KEY: ${CHATGPT_API_KEY}
+    container_name: chatgpt3-telegram-bot
